@@ -19,13 +19,13 @@ def verify_otp():
     password = request.form['password']
     mobile_number = request.form['number']
 
-    if username == 'verify' and password == '12345':   
-        account_sid = 'Enter your account_sid here'
-        auth_token = 'Enter your auth_token here'
+    if username == 'verify' and password == '12345':
+        account_sid = 'ACca9a8f9c514de50c3478b5bd5b423803'
+        auth_token = '4ae0fc2fde30507a5814b87a1f089616'
         client = Client(account_sid, auth_token)
 
         verification = client.verify \
-            .services('Enter your Service SID here') \
+            .services('VAc7d0946173f766dfb9eed51c8c652a18') \
             .verifications \
             .create(to=mobile_number, channel='sms')
 
@@ -56,7 +56,7 @@ def get_otp():
     if verification_check.status == "pending":
         return render_template('otp_error.html')    # Write code here
     else:
-        return redirect("https://collaborative-notepad.herokuapp.com/")
+        return redirect("https://otp-verification-alx5.onrender.com")
 
 
 if __name__ == "__main__":
